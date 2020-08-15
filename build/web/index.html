@@ -97,6 +97,7 @@ form input[type="submit"]:hover,form input[type="button"]:hover{
     color:white;
 }
 </style>
+	
 <script type="text/javascript">
 	$(document).ready(function(){
 		document.getElementById("fm2").style.display="none";
@@ -120,63 +121,72 @@ form input[type="submit"]:hover,form input[type="button"]:hover{
 	})
 	
 </script>
+	
 <script>
   window.console = window.console || function(t) {};
 </script>
+	
 <script>
   if (document.location.search.match(/type=embed/gi)) {
     window.parent.postMessage("resize", "*");
   }
 </script>
 </head>
+	
 <body translate="no">
-<center>            
-<form  method="post" name="form1" id="fm1">
-<h2>USER  LOGIN</h2>
-<input type="text" name="username" placeholder="Username" >
-<input type="password" name="password" placeholder="Password" >
-<input type="submit" value="LOGIN" name="submit" formaction = "Validate"><br>
-<input type="button" value="ADMIN LOGIN" id="admin"><input type="button" value="NEW USER" id="new">
-</form>
-<form action="Enrol" method="post" id="fm2" name="form2">
-<h2>NEW USER</h2>
-<input type="text" name="name" placeholder="Name" required>
-<input type="number" name="roll" placeholder="Roll no"  pattern="[0-9]{10}" required>
-<div class="selectdiv">
-     <select name="gender" class="selectBox" required>
-         <option value="General">--Gender--</option>
-	<option value="Male">Male</option>
-	<option value="Female">Female</option>
-	<option value="Transgender">Transgender</option>   
-    </select>
-    </div>
- <div class="selectdiv">
- <select name="branch" class="selectBox" required>
-    <option value="all">Department</option>
-    <option value="circuit">Circuit</option>
-    <option value="noncircuit">Non-Circuit</option>
-</select>
- </div>
-<input type="number" name="sem" placeholder="Semester" required>
- <div class="selectdiv">
- <select name="comm" class="selectBox" required>
-     <option value="oth">-Community-</option>
-    <option value="mbc">MBC</option>
-    <option value="bc">BC</option>
-    <option value="sc/st">SC/ST</option>
-</select>
- </div>
-<input type="number" name="income" placeholder="Annual Income" required>
-<input type="text" name="username" placeholder="Username" required>
-<input type="password" name="password" placeholder="Password" required>
-<input type="submit" value="SIGN UP">
-</form>
-<form action = "Validate" method="post" name="form3" id="fm3">
-<h2>ADMIN LOGIN</h2>
-<input type="text" name="username" placeholder="Username">
-<input type="password" name="password" placeholder="Password" >
-<input type="submit" value="LOGIN" name="submit"><br>
-<input type="button" id="user" value="USER LOGIN">
-</form>
-</center>
-</body></html>
+   <center>            
+	<form  method="post" name="form1" id="fm1">
+		<h2>USER  LOGIN</h2>
+		<input type="text" name="username" placeholder="Username" >
+		<input type="password" name="password" placeholder="Password" >
+		<input type="submit" value="LOGIN" name="submit" formaction = "Validate"><br>
+		<input type="button" value="ADMIN LOGIN" id="admin"><input type="button" value="NEW USER" id="new">
+	</form>
+	
+			
+	
+	<form action="Enrol" method="post" id="fm2" name="form2">
+		<h2>NEW USER</h2>
+		<input type="text" name="name" placeholder="Name" required>
+		<input type="number" name="roll" placeholder="Roll no"  pattern="[0-9]{10}" required>
+		<div class="selectdiv">
+     			<select name="gender" class="selectBox" required>
+         		<option value="General">--Gender--</option>
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+			<option value="Transgender">Transgender</option>   
+    			</select>
+    		</div>
+ 		<div class="selectdiv">
+ 			<select name="branch" class="selectBox" required>
+   			<option value="all">Department</option>
+    			<option value="circuit">Circuit</option>
+    			<option value="noncircuit">Non-Circuit</option>
+			</select>
+ 		</div>
+		<input type="number" name="sem" placeholder="Semester" required>
+ 		<div class="selectdiv">
+			<select name="comm" class="selectBox" required>
+     			<option value="oth">-Community-</option>
+    			<option value="mbc">MBC</option>
+    			<option value="bc">BC</option>
+    			<option value="sc/st">SC/ST</option>
+			</select>
+ 		</div>
+		<input type="number" name="income" placeholder="Annual Income" required>
+		<input type="text" name="username" placeholder="Username" required>
+		<input type="password" name="password" placeholder="Password" required>
+		<input type="submit" value="SIGN UP">
+	</form>
+	
+	<form action = "Validate" method="post" name="form3" id="fm3">
+		<h2>ADMIN LOGIN</h2>
+		<input type="text" name="username" placeholder="Username">
+		<input type="password" name="password" placeholder="Password" >
+		<input type="submit" value="LOGIN" name="submit"><br>
+		<input type="button" id="user" value="USER LOGIN">
+	</form>
+	
+   </center>
+</body>
+</html>
