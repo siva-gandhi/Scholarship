@@ -20,15 +20,18 @@ public class Insert extends HttpServlet {
             String opt=request.getParameter("act");
             
             switch (opt) {
-                case "delete":
+                case "delete":                              ## Delete a ScholarShip 
+                    
                     s.createQuery("delete from ScholarshipDetails where id=:sid ").setString("sid",request.getParameter("ID")).executeUpdate();
                     break;
                     
-                case "update":
+                case "update":                              ## Update an already existing Scholarship
+                    
                     s.createQuery("update ScholarshipDetails set lastdate=:date where id=:uid").setString("date",request.getParameter("date")).setString("uid", request.getParameter("ID")).executeUpdate();
                     break;
                     
-                case "add":
+                case "add":                                 ## Insert a new Scholarship
+                    
                     obj.setId(Integer.parseInt(request.getParameter("ID")));
                     obj.setName(request.getParameter("name"));
                     obj.setDepartment(request.getParameter("dept"));
