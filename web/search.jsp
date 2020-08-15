@@ -31,7 +31,7 @@ background-size: cover;}
 form{
     background: #262626;
     padding: 20px;
-    opacity:0.95;
+    opacity:0.95; 
     display:inline-flex;
     flex-direction: column;
     align-items: center;
