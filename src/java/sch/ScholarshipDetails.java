@@ -67,4 +67,5 @@ public class ScholarshipDetails  implements java.io.Serializable {
     public void setLastdate(String lastdate) {
         this.lastdate = lastdate;
     }
+     
 }
