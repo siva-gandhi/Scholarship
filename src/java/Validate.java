@@ -27,37 +27,39 @@ public class Validate extends HttpServlet {
              SchbeanLocal sbean;
              sbean=(SchbeanLocal)ic.lookup("java:global/Scholarship/Schbean");
               HttpSession session=request.getSession();
-              if(username.equals("kirubhanithy@gmail.com") && password.equals("kirubha1999"))
-                   response.sendRedirect("add.html");
+             
+              if(username.equals("admin@gmail.com") && password.equals("admin123"))             ## Considering just a single Admin this can be stated directly instead of a Database Fetch
+                   response.sendRedirect("add.html");                                           ## If Multiple Admins are allowed then it their details will be fetched and matched as it has been for users
+              
               Session ssn=HibernateUtil.getSessionFactory().openSession();
               ssn.beginTransaction(); 
-              List list=ssn.createQuery("from Users").list();
+              List list=ssn.createQuery("from Users").list();                                   ## Fetch User details
               Iterator iter=list.iterator();
               while(iter.hasNext())
               {
-                 Users temp=(Users)iter.next();
+                 Users temp=(Users)iter.next();                                                 ## Iterate through users and fetch data for a match
                  System.out.println(temp.getUsername());
-                 if(temp.getUsername().equals(username)&&temp.getPassword().equals(password))
+                 if(temp.getUsername().equals(username)&&temp.getPassword().equals(password))           
                  {
                      found=true;
                      String qstr="from ScholarshipDetails as p where (p.gender=:gid or p.gender='General') and p.income>:inc and (p.comm=:cid or p.comm='oth') and (p.department=:did or p.department='all')";
                      List l1=ssn.createQuery(qstr).setString("gid", temp.getGender()).setInteger("inc",temp.getInc()).setString("cid", temp.getComm()).setString("did",temp.getBranch()).list();
                      Iterator it=l1.iterator();
-                     ssn.getTransaction().commit();
+                     ssn.getTransaction().commit();                                             ## Query to fetch the appropriate Scholarship IDs for the Respective user
                      ssn.close();
                      sbean.restart();
                      while(it.hasNext())
                      {
                          ScholarshipDetails stemp=(ScholarshipDetails)it.next();
                          System.out.println(stemp.getName());
-                         sbean.addscholar(stemp);
+                         sbean.addscholar(stemp);                                               ## Fetch the details for the selected Scholarships
                      }
                      System.out.println(sbean.getscholar().size());
                      break;         
                  }
               } 
             if(found==true)
-               response.sendRedirect("search.jsp");
+               response.sendRedirect("search.jsp");                                             ## Redirect the User to Listing or Index page appropriately
             else
                response.sendRedirect("index.html");
         }
