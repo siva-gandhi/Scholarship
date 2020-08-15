@@ -17,7 +17,7 @@ public class Enrol extends HttpServlet {
             ssn.beginTransaction();
             
             Users user=new Users();
-            
+                                                                                    ## Fetch The Details registerd by the User on login page
             user.setName(request.getParameter("name"));
             user.setRoll(Integer.parseInt(request.getParameter("roll")));
             user.setGender(request.getParameter("gender"));
@@ -28,11 +28,11 @@ public class Enrol extends HttpServlet {
             user.setUsername(request.getParameter("username"));
             user.setPassword(request.getParameter("password"));
             
-            ssn.save(user);
-            ssn.getTransaction().commit();
+            ssn.save(user);                                                         ##  Insert a new User in MySQL Database using Hibernate
+            ssn.getTransaction().commit();                      
             ssn.close();
             
-            RequestDispatcher rd=request.getRequestDispatcher("index.html");  
+            RequestDispatcher rd=request.getRequestDispatcher("index.html");        ## Forward to the Main Page
             rd.forward(request, response);
         }  
         catch(HibernateException | NumberFormatException | ServletException | IOException e)
