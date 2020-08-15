@@ -10,13 +10,13 @@ public class Schbean implements SchbeanLocal {
     @Override
     public void addscholar(ScholarshipDetails sch) {
         if(!rlist.contains(sch.getId()))
-        {
+        {                                                               ## Add Scholarship
              rlist.add(sch.getId());
              slist.add(sch);
         } 
     }
     @Override
-    public List<ScholarshipDetails> getscholar() {
+    public List<ScholarshipDetails> getscholar() {                       ## Fetch Scholarships
         return slist;
     }
 
